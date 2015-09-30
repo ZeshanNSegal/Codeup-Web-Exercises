@@ -1,0 +1,38 @@
+#flag1 {
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    line-height: 100px;
+    border: 1px solid #bbb;
+    margin: 10px;
+    position: relative;
+    background: #fff;
+}
+
+#flag1:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background: #00f;
+    width: 33%;
+    z-index: 4;
+}
+#flag1:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #f00;
+    width: 33%;
+    z-index: 4;
+}
+
+#flag1 h1 {
+    position: relative;
+    font-size: 55px;
+    color: #999;
+    z-index: 16;
+}

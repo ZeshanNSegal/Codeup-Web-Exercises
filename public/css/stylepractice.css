@@ -1,0 +1,37 @@
+
+body {
+    display: block;
+	background-image: url("../img/dark_paisley.jpg");
+	text-align: center;
+	color: #5aff04;
+	text-shadow: 3px 3px black;
+}
+
+.jumbotron {
+	text-align: center;
+	background-color: #164000;
+	color: black;
+	margin: 80px;
+	margin-left: 25px;
+	margin-right: 25px;
+	padding-top: 1px;
+	padding-bottom: 13px;
+	text-shadow: .5px .5px #5aff04;
+	opacity: .8;
+}
+
+nav{
+	text-decoration: none;
+	text-shadow: none;
+	color: white;
+}
+
+.fa {
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.fa:hover {
+    -webkit-transform: rotate(360deg); /* Safari */
+    transform: rotate(360deg);
+    /*above elements are how to make icons spin*/
