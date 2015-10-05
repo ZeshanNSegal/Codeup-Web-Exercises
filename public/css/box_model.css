@@ -6,7 +6,7 @@
 	color: white;
 	font-weight: bold;
 	float:left;
-	margin: 22px 50px 22px 0px;
+	margin: 50px 150px 50px 0px; /*changing my margins made it go from 2 rows of 3 to 3 rows of two, keeping mostly everything else the same.*/
 	font-size: 17px;
 }
 

@@ -1,0 +1,142 @@
+
+/* selector {
+    property1: value;
+    property2: value;
+}*/
+
+/*.background-color{
+	color:blue;
+}*/
+
+#main-header {
+	color: grey;
+	text-decoration: none;
+	font-style: italic;
+}
+
+h3.fancy-header {
+	color: green;
+	text-decoration: underline
+	}
+
+h2 {
+	font-style: normal;
+}	
+.paragraph1 {
+	font-family: "Times New Roman", georgia, sans-serif;
+	font-size: 26px;
+	color:green;
+}
+
+.paragraph2 {
+	color:red;
+	text-decoration: none;
+}	
+
+/*If you would like to have multiple selectors have the same style definition, you can separate the selectors with commas as follows:
+
+selector1, selector2 {
+    property1: value;
+    property2: value;
+}
+Here, both selector1 and selector2 will have the same style property values assigned.
+
+*/
+
+.extra-large {
+	font-size: 3em;
+}
+
+.p3, .p4 {
+	color:orange;
+	font-size:15px;
+	font-size:1em;
+	text-align: center;
+}
+
+/*unvisited link*/
+a:link {
+	color:blue;
+}
+
+/*visited link*/
+a:visited{
+	color:red;
+}
+
+/*mouse hover over link*/
+a:hover {
+	color:purple;
+}
+
+/*active/selected link*/
+a:active {
+	color:green;
+}
+
+/* selector for id="container" */
+#container {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
+
+/*  selector for all "h1" elements
+    that are a descendent of id="container"
+    and have a class of "fancy-header" */
+.h1 {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* selector for all "em" elements */
+.em {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+/* selector for all elements with class="article" */
+.article{
+    clear:both;
+}
+
+/*  selector for all "anchor" elements
+    that are a direct child of an element with class="article" */
+.a {
+    float:right;
+}
+
+ol { 
+	list-style: upper-alpha; 
+}
+ul { 
+	list-style: square; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

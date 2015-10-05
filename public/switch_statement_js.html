@@ -5,7 +5,8 @@
 </head>
 <body>
 	<h1>Switch Statements JS</h1>
-<script>	
+<script>
+"use strict";	
 	
 	<!-- // ignore these lines for now
 // just know that the variable 'color' will end up with a random value from the colors array -->
@@ -14,19 +15,19 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 
 switch (color) {
 	case "red":
-		console.log("This is red the color of love.");
+		console.log("This is red, the color of love.");
 		break;
 	case "orange":
-		console.log("This is orange of caution.");
+		console.log("This is orange, the color of the sun.");
 		break;
 	case "yellow":
-		console.log("This is yellow the color of the sun.");
+		console.log("This is yellow, the color of caution.");
 		break;
 	case "green":
-		console.log("This is green the color of grass");
+		console.log("This is green, the color of grass");
 		break;
 	case "blue":
-		console.log("This is blue the color of the sky");
+		console.log("This is blue, the color of the sky");
 		break;
 	default:
 		console.log("I don't know anything by that color");
