@@ -6,14 +6,15 @@
 		<title>REDO OF EVERYTHING HTML AND CSS</title>
 		<link rel="stylesheet" href="/cssStylesheetRedo.css"> 
 	</head>
-	<h1 id="main-header" class="extra-large">I am ReDoing the Basics, Bitz!</h1>
+	
 	<body>  
+		<h1 id="main-header" class="extra-large">I am ReDoing the Basics, Bitz!</h1>
 		<h2 class="h2">Hello from Zee!</h2>
 		<p class="h1">This is a review, but I need to get the basics down. It's like the first layer of the house. Build it strong, and then, the rest of the house will be structrally sound.</p>
 
-	<div id="container">	
-		<p>Once you get the basics, once you understand them... the rest starts to come in natrually. So, what are the things I need to learn? For starters, HTML and CSS. </p>
-	</div>	
+		<div id="container">	
+			<p>Once you get the basics, once you understand them... the rest starts to come in natrually. So, what are the things I need to learn? For starters, HTML and CSS. </p>
+		</div>	
 		<!-- actual page content goes here -->
 		<!-- comments can be single line -->
 
@@ -23,7 +24,9 @@
 		comments
 		-->
 
-		<div> A div is a block level element.</div> 
+		<div>
+			<p>A div is a block level element.</p>
+		</div> 
 			<!-- A block-level element occupies the entire space of its parent element (container), thereby creating a "block."  They also begin on new lines. Generally, block-level elements may contain data, other block-level elements, or inline elements. 
 
 			These are all divs (but there are more): address, article, aside, audio, blockquote, canvas, div, dd, dl, fieldset, figcaption, figure, footer, form, h1 - h6, header, hr, li, main, nav, ol, p, pre, section, table, ul, video-->
@@ -35,15 +38,15 @@
 			<!-- Some HTML elements, are defined as "void elements". This simply means that they are not meant to contain any content. Since there is no content, a closing tag is not needed and therefore a void element looks like this: -->
 
 		<div id="wrapper">
-		<p>Right now, I am sitting in <span style="color:red">BookPeople</span>, the bookstore. I am in the cafe. People are speaking loudly. I have my earphones in. I am reviewing the curriculum. It's starting to make more sense. I think more than anything, the speed of the class is hard for me to keep up with.<p/>
+			<p>Right now, I am sitting in <span style="color:red">BookPeople</span>, the bookstore. I am in the cafe. People are speaking loudly. I have my earphones in. I am reviewing the curriculum. It's starting to make more sense. I think more than anything, the speed of the class is hard for me to keep up with.<p/>
 		</div>
 		<div class="paragraph1">
-		<p>What does the <br>span tag<br> do?<br> I just learned by googling! Span is an inline element used with another compontent. On it's own, it's unseen, but add an id and element, and it does something! Is this a correct interpretaion of the span tag?</p>
+			<p>What does the <br>span tag<br> do?<br> I just learned by googling! Span is an inline element used with another compontent. On it's own, it's unseen, but add an id and element, and it does something! Is this a correct interpretaion of the span tag?</p>
 		</div>
 
 		<div id="container">
 
-			<p>Questions I have:
+			<p>Questions I have:</p>
 				<ol>
 					<li>I want to make my HTML page look clean, but I am never sure about where to indent things, and how much. Is there a way to make sure I am doing it correctly? Is it correct, so far?</li>
 					<li>What does the id="wrapper" do exactly?</li>
@@ -67,58 +70,57 @@
 					<li>What's the GUI? And how does it connect with CLI?</li>
 
 				</ol>
-			</p>
 		</div>
-
-		<p>
-			<dl>
-				<dt style="color:orange"><strong>DNS</strong></dt>
-				<dd style="color:yellow"><em>Domain Name Server</em></dd>
-				<dt style="color:green"><strong>HTML</strong></dt>
-				<dd style="color:blue"><em>HyperText Markup Language</em></dd>
-				<dt style="color:indigo"><strong>HTTP</strong></dt>
-				<dd style="color:violet"><em>HyperText Transfer Protocol</em></dd>
-			</dl>		
-		</p>
+			
+		<dl>
+			<dt style="color:orange"><strong>DNS</strong></dt>
+			<dd style="color:yellow"><em>Domain Name Server</em></dd>
+			<dt style="color:green"><strong>HTML</strong></dt>
+			<dd style="color:blue"><em>HyperText Markup Language</em></dd>
+			<dt style="color:indigo"><strong>HTTP</strong></dt>
+			<dd style="color:violet"><em>HyperText Transfer Protocol</em></dd>
+		</dl>
 
 		<!-- By default, most browsers will simply indent block quoted text. With a little styling though, block quotes may look like this: -->
-			<blockquote style="color:red">My favorite quote should be indented in, and red since I am using a styling id within the blockquote.</blockquote>
+		<blockquote style="color:red">My favorite quote should be indented in, and red since I am using a styling id within the blockquote.</blockquote>
 		<!-- If you'd like to make a quote in HTML, you can accomplish that with the block quote element, <blockquote>, as follows: -->
 		<p>
 			<br><a href="http://www.google.com" target="_blank" style="text-decoration:none">Go to Google, Fool!</a>
 		</p>
 
-		<p><h3 class="p3">My Favorite Websites</h3>
+		<p>
+			<h3 class="p3">My Favorite Websites</h3>
 			<ul>
 				<li><a href="http://www.reddit.com" target="_blank">Reddit</a></li>
 				<li><a href="http://www.facebook.com" target="_blank"><img src="img/fb_thumbsup_small.png" alt="Facebook"</a></li>
 				<li><a href="http://www.twitter.com" target="_blank"><img src="/img/twitter_t_small.png" alt="Twitter"></a></li>
 			</ul>
 		</p>
-			<table>
-    <tr>
-        <th style="color:red">First Name</th>
-        <th style="color:blue">Last Name</th>
-        <th style="color:red">Email Address</th>
-        <th style="color:blue">Phone Number</th>
-    </tr>
-    <tr>
-        <td>Someone's first name</td><!--This is Row 1, Column 1-->
-        <td class="">Someone's last name</td><!--This is Row 1, Column 2-->
-        <td>someones@email.com</td><!--This is Row 2 Column 3-->
-        <td>(th3)phn-nm83r</td><!--This is Row 1, Column 4-->
-    </tr>
-    <tr>
-        <td>John</td><!--This is Row 2, Column 1-->
-        <td>Doe</td><!--This is Row 2, Column 2-->
-        <td>john.doe@email.com</td><!--This is Row 2, Column 3-->
-        <td>(512)-787-1321</td><!--This is Row 2, Column 4-->
-    </tr>
-</table>
-		<p>
-		</p>
 
-		<br><br><footer><a href="#top" style="color:orange">Go to the top of the page</a><br><br></footer>
+		<table>
+		    <tr>
+		        <th style="color:red">First Name</th>
+		        <th style="color:blue">Last Name</th>
+		        <th style="color:red">Email Address</th>
+		        <th style="color:blue">Phone Number</th>
+		    </tr>
+    		<tr>
+		        <td>Someone's first name</td><!--This is Row 1, Column 1-->
+		        <td class="">Someone's last name</td><!--This is Row 1, Column 2-->
+		        <td>someones@email.com</td><!--This is Row 2 Column 3-->
+		        <td>(th3)phn-nm83r</td><!--This is Row 1, Column 4-->
+		    </tr>
+		    <tr>
+		        <td>John</td><!--This is Row 2, Column 1-->
+		        <td>Doe</td><!--This is Row 2, Column 2-->
+		        <td>john.doe@email.com</td><!--This is Row 2, Column 3-->
+		        <td>(512)-787-1321</td><!--This is Row 2, Column 4-->
+		    </tr>
+		</table>
+
+		<footer>
+			<p><a href="#top" style="color:orange">Go to the top of the page</a></p>
+		</footer>
 		
 	</body>
 </html>
