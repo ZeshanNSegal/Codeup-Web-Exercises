@@ -1,10 +1,6 @@
 "use strict"
 
-var body = document.getElementsByTagName('body')[0];
-
-for (var i = 1; i <= 100; i++) {
-	 if (i % 5 == 0 && i % 3 == 0) {
-	 	console.log("FizzBuzz");
+FizzBuzz");
 	 	body.innerHTML += "<p>FizzBuzz</p>";
 	 }
 	else if ( i % 3 == 0) {
@@ -13,7 +9,11 @@ for (var i = 1; i <= 100; i++) {
 
 	}
 
-	else if (i % 5 == 0) {
+	else if (i % 5 == 0var body = document.getElementsByTagName('body')[0];
+
+for (var i = 1; i <= 100; i++) {
+	 if (i % 5 == 0 && i % 3 == 0) {
+	 	console.log(") {
 		console.log("Buzz")
 		body.innerHTML += "<p>Buzz</p>";
 	}
