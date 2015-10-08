@@ -4,7 +4,7 @@ console.log(random);
 var guesses = 2;
 var prompted = prompt('Can you guess the number?');
 
-	while (random !== prompted && guesses > 0){
+	while (random !== prompted && guesses > 0) {
 		if (random > prompted) {
 			alert('You guessed too low...' + guesses + ' guesses left');
 		}		
@@ -16,17 +16,15 @@ var prompted = prompt('Can you guess the number?');
 		prompted = prompt('Guess again!');
 	}
 
-	if (random === prompted){
+	if (random === prompted) {
 		alert('You guessed correctly!');
 	}
 
 	else {
 		alert('You ran out of guesses! :(');
 	}
+
 	
-	if (confirm("Play again?")) {
-  	window.location.reload(true);
-}
 
 
 

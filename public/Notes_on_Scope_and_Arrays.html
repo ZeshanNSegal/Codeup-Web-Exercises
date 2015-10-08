@@ -1,0 +1,50 @@
+Notes on Scope
+define a variable inside a function makes it local. 
+when you declare avariable inside a function it can only be used inside that specific function. 
+
+Hoisting- If I am going to use a var inside my function, declare it near the function, up top, close to the function
+
+declare a global variable
+var globalVar = "Look, I'm Global!";
+
+call the say hello function
+sayHello();
+
+define the sayHello function
+function sayHello() {
+    // globalVar is accessible here since the sayHello function scope is a sub-scope of the global scope
+    alert(globalVar);
+}
+
+sayHello1(); // Greetings from sayHello1.
+sayHello2(); // Uncaught TypeError: Property 'sayHello2' of object [object Object] is not a function
+
+// declare a function in the global scope
+function sayHello1 () {
+  alert('Greetings from sayHello1.');
+}
+
+// assign a function to a variable named sayHello2
+var sayHello2 = function () {
+  alert('Greetings from sayHello2.');
+}; // SayHello2 is not a function in this example. it is a var and gets hoisted to the top...
+
+Immediately-Invoked Function Expressions----IIFE aka Self-Invoking Functions (SIF)
+Function that gets set and ran as you define it... Wht's the use case? Scope inside function is local... so can lock stuff down... Using local scope aspect around whole script to protect the whole script.. 
+
+
+(function)(){
+})(); Two sets of parens,function in first parens, curly braces, closing parens and all the rest of my code goes within/below the openign curly brace
+
+
+Arrays are a collection of data. Holds an ordered list of data.
+Starts at 0. syntax is in [square brackets] each one is in a quote, followed by comma. see below
+Multidimensional arrays added square brackets inside the original brackets... see below
+
+ex. var shapes = [ "square", "rectangle", "circle", "triangle", [ 'trap', 'diamond' ] ];
+
+call the array by using the muber of the spot... see above... console.log(shapes [0]); will call up square.
+
+Cocatination is also posiible console.log(shapes[0] + '' + shapes[2]); will call up square and circle 
+
+use a function when you want to do a couple lines of code more than once. Loops do multiple times, function can be called more than once, but not looping. 
