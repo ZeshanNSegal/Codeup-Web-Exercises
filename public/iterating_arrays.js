@@ -28,7 +28,7 @@
 // 	// console.log(message);
 // 	console.log('The name at index ' + i + ' is ' + names[i]);
 // }
-// ////// For-Each Loop below is the same as the above. It runs for each element in that array before each loop runs a specific function
+
 
 // names.forEach(function (element, index, array){
 // 	console.log('The name at index ' + index  + ' is ' + element);
@@ -84,6 +84,49 @@ var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo'];
 colors.forEach(function (element, index, array){
 	console.log('The color at index ' + index + ' is: ' + element);
 });
+
+// use forEach loops for generic arrays, and use a for loop for numeric problems... like finding the prime #s from 1-1000... 
+
+// .push .forEach, are methods... methods are functions that are run on an object.
+// tacos.push('bean and cheese'); adds the element to the end of the array so bean and cheese would be the last one in the list
+// can push multiple elements ( in this case tacos) using a comma seperator... 'bean', 'chicken', 'egg', etc... 
+// arrays can hold different types of data: strings, values, and can add differnet values like booleans, numbers, etc. all to the same array (in this example, the taco array could have numbers added, booleans, etc.)
+
+var beatles = [' John', 'Paul' 'Ringo', 'George'];
+
+beatles.push('Bob Dylan');
+
+console.log(beatles);
+
+beatles.pop(); // pops off the last piece of data in the array
+
+console.log('I just popped Bob');
+
+console.log(beatles);
+
+// beatles.shift() removes the first element in the array, in the example above John would be removed. 
+//beatles.unshift()('John') would put John back in the array
+
+var daysOfTheWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+daysOfTheWeek.push('Friday', 'Saturday'); //adds F and S to the end of the list
+daysOfTheWeek.unshift('Sunday'); //adds sunday to the beginning of the list
+daysOfTheWeek.shift('Sunday'); /// would remove Sunday from the list
+
+//arrayName.splice(startIndex, numberOfItemsToRemove);
+daysOfTheWeek.splice(2,1) //will remove Wednesday from the splice (Wednesday is in the second position (0, 1, 2) and we are only removing 1 item form the list (so it would be daysOfTheWeek.splice(2,1)))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

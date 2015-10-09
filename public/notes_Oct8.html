@@ -1,0 +1,89 @@
+<!-- // ////// For-Each Loop below is the same as the above. It runs for each element in that array before each loop runs a specific function
+
+//Objects are a grouping of data and functionality. Everything in JS are objects. Have a key-value index. Key gets a value. 
+// access the kkey with a '.' (a period). ex. colors.length length is a property of colors. color is the key. Length is the value. 
+//console.log is a key-value. Console is the key log is the function(value).
+// use {} to make an empty object. 
+
+// built in variable 'this' to call the object in the variable -->
+
+
+JavaScrip Objective Notation(JSON) is a data-interchange format that is easy for humans to read and write. It is widely used in cloud based services and web application programming interfaces (APIs).
+
+Object literal and array literal notations were discussed earlier, and these same notations are used in JSON. 
+
+<!-- Empty object in json form looks like this : --> {}
+
+<!-- empty array in json form looks like this --> []
+
+Object properties in JSON start with a string version of the property name, followed by the value of the property. Properties are seperated by a comma. 
+
+<!-- Example: --> {
+	"name1": "value1",
+	"name2": "value2"
+}
+
+The value of a property can be one of the following: 
+	- A quoted string
+	- A number
+	- An object
+	- An array
+	- true or false
+	- null
+
+ <!-- Example utilizing all the possible types: -->
+ {
+ 	"stringProp": "stringValue",
+ 	"numberProp": 1,
+ 	"objectProp": {
+ 		"prop": "value"
+ 	},
+ 	"arrayProp" : ['item1', 'item2'],
+ 	"arrayOfObjectsProp" : [
+ 		{
+ 			"prop": "value"
+ 		},
+ 		{
+ 			"prop": "value"
+ 		}	
+ 	],
+ 	"boolProp"  : true,
+ 	"nullProp"  : null
+}
+
+Be seeing and using JSON syntax over the next few months. Need to study. 
+
+Objects don't have any inherant order to them in JSON
+
+Oct 9---------------
+
+var cars = 
+
+function getYear(car) {
+	retrun car.year;
+}
+
+var getYear = function(car) {
+	return car.year; 
+}
+
+var app = {
+
+"cars": [{
+	"make": "Hyundai",
+	"model": "Accent",
+	"year": "2006"
+	}
+	{
+	"make": "Buick",
+	"model": "Skylark",
+	"year": "1987"
+}],
+
+"getYear": function(car) { //// this is a method defined on an object/////
+	return car.year;
+},
+"honkHorn": function() {
+	alert('HONK HONK');
+}
+
