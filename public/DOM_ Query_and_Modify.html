@@ -5,7 +5,12 @@
     <title>DOM: Query and Modify</title>
 </head>
 <body>
-    <h1 id="main-header">Hello World!</h1>
+    <button id='mainHeader'>Click Me!</button>
+    <button id='subHeader'>Click for Sub-Heading!</button>
+    <button id='listItems'>Click for List-Items</button>
+    <button id='subParagraph'>Click for Sub-Parapgraph!</button>
+
+    <h1 id="mainheader">Hello World!</h1>
     <ul>
         <li data-dbid="1">Item 1</li>
         <li data-dbid="2">Item 2</li>
@@ -13,8 +18,9 @@
         <li data-dbid="4">Item 4</li>
         <li data-dbid="5">Item 5</li>
     </ul>
-    <h2 id="sub-header">Hello Again.</h2>
-    <p class="sub-paragraph">
+
+    <h2 id="subHeader">Hello Again.</h2>
+    <p class="subParagraph">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -26,16 +32,47 @@
 
     <script>
         "use strict";
+
+        var listener = function (event) {
+            alert('You Clicked Main Header!');
+        }
+        var mainHeader= document.getElementById('mainHeader');
+        mainHeader.addEventListener('click', listener, false);
+
+        var remover = function (event) {   //Didn't work! 
+            mainHeader.removeEventListener('click', listener, false);
+            console.log('Event listener removed.'); 
+        }
+
+        var listener = function (event) {
+            alert('You Clicked the Sub-Header Button')
+        }
+        var subHeader = document.getElementById('subHeader'); 
+        subHeader.addEventListener('click', listener, false);
+
+        var listener = function (event) {
+            alert('You clicked for List Items!');
+        }
+        var listItems = document.getElementById('listItems');
+        listItems.addEventListener('click', listener, true);
+        
+        var listener = function (event) {
+            alert('You clicked for Sub-Paragraphs');
+        }
+        var subParagraph = document.getElementById('subParagraph');
+        subParagraph.addEventListener('click', listener, false); 
+
+
         (function() {
             // TODO: Uncomment next line and get the main header element by id
-            var mainHeader = document.getElementById('main-header');
+            // var mainHeader = document.getElementById('mainHeader');
 
             // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-            mainHeader.innerHTML = "JaveScript is Cool"
+            mainHeader.innerHTML = "JavaScript is Rad"
             console.log(mainHeader);
 
             // TODO: Uncomment the next line and get the sub header element by id
-            var subHeader = document.getElementById('sub-header');
+            // var subHeader = document.getElementById('subHeader');
 
             // TODO: Set the text color of subHeader to blue
             subHeader.style.color = "blue";
@@ -43,22 +80,23 @@
             var listItems = document.getElementsByTagName('li');
 
             // TODO: Set text color on every other list item to grey
-            for (var i = 0; i < listItems.length; i++) {
+            for (var i = 0; i <listItems.length; i++) {
+                
                 if(listItems[i].getAttribute('data-dbid') == 1) {
                 listItems[i].style.color = "green";      
                 }
 
-               else if(i % 2 === 0){
+                else if(i % 2 == 0){
                 listItems[i].style.color = "red";
                 }
             }
 
-            console.log(listItems);
+            console.log(listItems[1]);
             
             var subParagraphs = document.getElementsByClassName("sub-paragraph");
             console.log(subParagraphs);
             
-            subParagraphs[0].innerHTML = "Mission Accomplished!"
+            subParagraphs[0].innerHTML = "<span>Mission Accomplished!</span>"
         })();
     </script>
 
