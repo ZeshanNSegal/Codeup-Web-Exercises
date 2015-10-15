@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html/css; charset=UTF-8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/calculator.css">
+    
+	<title>JavaScript Calculator</title>
+</head>
+<body>
+	<h1>Zee's BadAzz Math Calculating Machine</h1>
+	<main>
+		<div class"calculator">
+			<table class = "table-bordered">
+				<thead>
+					<tr>
+						<th><div class="display"><input type="text" readonly id="left"></div></th>
+						<th><div class="display"><input type="text" readonly id="middle"></div></th>
+						<th><div class="display"><input type="text" readonly id="right"></div></th>
+						<th><div class="display"><input type="text" readonly id="equals"></div></th>
+					</tr>		
+				</thead>
+				<tbody>
+					<tr>
+						<td><a class="btn btn-lg btn-primary numbers">7</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">9</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">8</a></td>
+						<td><a class="btn btn-lg btn-primary operators">*</a></td>		
+					</tr>
+
+					<tr>
+						<td><a class="btn btn-lg btn-primary numbers">4</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">5</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">6</a></td>
+						<td><a class="btn btn-lg btn-primary operators">-</a></td>
+					</tr>
+
+					<tr>
+						<td><a class="btn btn-lg btn-primary numbers">1</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">2</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">3</a></td>
+						<td><a class="btn btn-lg btn-primary operators">+</a></td>
+					</tr>
+
+					<tr>
+						<td><a class="btn btn-lg btn-primary" id="clear">C</a></td>
+						<td><a class="btn btn-lg btn-primary numbers">0</a></td>
+						<td><a class="btn btn-lg btn-primary" id="equalButton">=</a></td>
+						<td><a class="btn btn-lg btn-primary operators">/</a></td>
+					</tr>
+			</table>		
+		</div>	
+	</main>
+	<script src="/JS_calculator.js"></script>
+</body>
+</html>

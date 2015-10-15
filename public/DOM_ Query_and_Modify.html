@@ -35,9 +35,10 @@
 
         var listener = function (event) {
             alert('You Clicked Main Header!');
+            var mainHeader= document.getElementById('mainHeader');
+            mainHeader.addEventListener('click', listener, false);
+            title.innerHTML = 'Javascript is Rad';
         }
-        var mainHeader= document.getElementById('mainHeader');
-        mainHeader.addEventListener('click', listener, false);
 
         var remover = function (event) {   //Didn't work! 
             mainHeader.removeEventListener('click', listener, false);
@@ -54,7 +55,7 @@
             alert('You clicked for List Items!');
         }
         var listItems = document.getElementById('listItems');
-        listItems.addEventListener('click', listener, true);
+        listItems.addEventListener('click', listener, false);
         
         var listener = function (event) {
             alert('You clicked for Sub-Paragraphs');
