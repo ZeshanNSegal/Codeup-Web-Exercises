@@ -2,7 +2,7 @@
 
 function displayNewCity(city){
 	var newCity;
-	$.get("http://api.openweathermap.org/data/2.5/forecast?q=" + city, {
+	$.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city, {
     APPID: "a3d9eecd1b08738898fb99c7a8200755",
      units: "imperial",
      cnt: 3
@@ -12,15 +12,16 @@ function displayNewCity(city){
 	var newCityName = data.city.name;
 	$("h4").html(newCityName);
 		data.list.forEach(function(day, i) {
-			cityWeather = "<h3>" + day.main.temp_max + "&deg; / " + day.main.temp_min + "&deg;</h3>";
+			cityWeather = "<h3>" + day.temp.max + "&deg; / " + day.temp.min + "&deg;</h3>";
 			cityWeather += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">';
 			cityWeather += "<p><strong>" + day.weather[0].main + ": </strong>" + day.weather[0].description[0].toUpperCase() + day.weather[0].
 				description.substring(1, day.weather[0].description.length) + "</p>";
-			cityWeather += "<p><strong>Humidity: </strong>" + day.main.humidity + "</p>";
-			cityWeather += "<p><strong>Wind: </strong>" + day.wind.speed + "</p>";
-			cityWeather += "<p><strong>Pressure: </strong>" + day.main.pressure + "</p>";
+			cityWeather += "<p><strong>Humidity: </strong>" + day.humidity + "</p>";
+			cityWeather += "<p><strong>Wind: </strong>" + day.speed + "</p>";
+			cityWeather += "<p><strong>Pressure: </strong>" + day.pressure + "</p>";
 			$(".day" + (i + 1)).html(cityWeather);	 
-			console.log(day);
+    		console.log(moment(day.dt * 1000));
+    		console.log(moment(day.dt * 1000).format("dddd, MMMM Do YYYY"));
 		});
 	});
 }
