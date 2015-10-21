@@ -1,0 +1,87 @@
+Jquery notes-
+easy button for javascript and dealing with the document. 
+selecting elements- getelementbyid, by class gets simplified... navigate, select DOM, animations, handle events, create Ajax, add plugins
+jquery is javascript it's a library,tools and functions to use within JS.
+Consistent, shortens, simplifies JS
+selectors- id, element, etc. are the exact same in CSS as in Jquery
+any selector you can do in CSS you can do in jquery
+
+Events-
+Mouse events- double click, click, hover, etc... 
+ex. 
+$(document).ready(function () {
+	"use strict";
+
+	$("nav-links a").click(function() {
+		console.log('I was clicked.');
+
+			$(this).css('background-color', '#4f4');
+	});
+
+	$("#nav-links a").dblclick(function() {
+		$(this).css('background-color', "#fff");
+	});
+
+	$("nav-links a").hover(function() {
+		$(this).css('font-size', '2em').css('font-weight', 'bold').css('color', '#faa');
+	}, function() { **** two events for hover hover in and hover out**** 
+		$(this).css({
+			"font-size": "1em",
+			"font-weight": "normal",
+			"color": "#000"
+		});
+	});
+});
+
+event handlers, when they are called, ppass a parameter, an event-object- usually just called : e, ev, or event.... 
+
+ex.
+
+{ ******** e/ev/event prevents the default from happening in lecture Ben used it to prevent the hyperlinks from being activated when he clicked on his nav-links*********
+
+$(document).ready(function () {
+	"use strict";
+
+	$("nav-links a").on("click", "a", function(e)  {
+		e.preventDefault();
+
+			$(this).css('background-color', '#4f4');
+	});
+
+	$("#nav-links a").dblclick(function() {
+		$(this).css('background-color', "#fff");
+	});
+
+	$("nav-links a").hover(function() {
+		$(this).css('font-size', '2em').css('font-weight', 'bold').css('color', '#faa');
+	}, function() {
+		$(this).css({
+			"font-size": "1em",
+			"font-weight": "normal",
+			"color": "#000"
+		});
+	});
+});
+
+$('name').keydown(function(ev) {
+	console.log(ev.which);
+});
+
+keydown
+keyup- listen to any keytype at all.
+keypress
+
+in console.log registers ascii codes for alphabet... listen to any button on keyboard for keydown key up
+keypress only specific keys being pressed- not delete, not fkeys, only keys that generate output...
+
+$("")
+
+$("add-link-btn").click(function() {
+	var $navlinks = $("#nav-links");
+
+	html = '<li><a href="#">Link #' + counter + '</a></li>';
+
+	$navLinks.html(html);
+	
+	counter++;
+})

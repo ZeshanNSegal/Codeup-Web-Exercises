@@ -1,0 +1,79 @@
+Essential Methods- Atribute Methods
+variable (this) refers to whatever triggered the event. 
+console.log($(this).html());- logs only html on event that just occurred. 
+console.log($(this).text());- logs just the text being seen by User-
+<h1 id="heading">Hello World!</h1>- wants that text to be displayed in h1. 
+$("#heading").text()); 
+
+$("nav-links a").removeClass("active");
+$(this).addClass("active");
+$("#nav-links a").toggleClass("active");
+<li> <a href="#" data-name="portfolio">Portfolio</a></li>
+console.log($(this).data('name'));
+$("#heading").data('current-name', dataName);
+
+body tag- nested inside is an aside tag and h1 nestd inside of that. H1 is child of aside, and aside is child of body. 
+<body>
+	<aside id="sidebar" class="container">
+		<h1>Navigation!</h1>
+$("main").children("p"):--- only gets p tags from main section
+$("home").parent() - goes to main
+$("home").parents(".containter"); will only get the id of container within the main section which is  parent of the id of home. 
+
+.each()- executes a function for each matched element. 
+.first()- reduce the set of matched elements to the first one in the set. 
+.last()- reduce the set of matched elements to the final one in the set. 
+
+("#navlinks").children().children().first().addClass('active'); -- makes first anchor tag the active navlink
+
+("#navlinks").children().children().last().addClass('active'); -- makes last anchor tag the active navlink
+
+The syntax for .each() is:
+
+
+.each( function(index, Element) )
+As we see, it passes the index and the element to the callback function at the beginning of each pass.
+
+If we had an unordered list like this one:
+
+<ul>
+    <li>Linux</li>
+    <li>Apache</li>
+    <li>MySQL</li>
+    <li>PHP</li>
+    <li>JavaScript</li>
+</ul>
+We could use jQuery to highlight every other li element using the .each() method:
+
+$('li').each(function(index) {
+    if (index % 2 !== 0) {
+        $(this).css('background-color', '#FF0');
+    }
+});
+The first li element will have an index of 0, so to highlight even rows, we need to add a yellow background to odd indexes.
+
+The element is passed as this, so we can use $(this) to make it a jQuery object.
+
+$("nav-links").children().children().each(function(index){
+	switch(index % 3) {
+		case 0:
+			$(this).css('background-color', '#f88');
+			break;
+		case 1:
+			$(this).css('background-color', '#8f8');
+			break;	
+		case 2:
+			$(this).css('background-color', '#88f');
+			break;	
+	}
+});
+
+$("h3").click(function() {
+	$("li)")
+})
+
+
+
+
+
+

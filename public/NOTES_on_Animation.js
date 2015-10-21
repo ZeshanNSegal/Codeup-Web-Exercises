@@ -1,0 +1,1 @@
+NOTES on Animation.js

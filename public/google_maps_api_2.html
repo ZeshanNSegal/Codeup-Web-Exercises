@@ -20,64 +20,42 @@
     <script type="text/javascript">
     (function() {
         "use strict";
-        function initMap() {
-		  var map = new google.maps.SATELLITE(document.getElementById('SATELLITE'), {
-		    center: {lat: 32.703, lng: -96.706},
-		    zoom: 15,
-		    mapTypeId: google.maps.MapTypeId.SATELLITE
-		  });
-		  map.setTilt(45);
-		}
+        
+		var trac = { lat: 32.703812, lng: -96.706003 };
 
-        // Set our map options
         var mapOptions = {
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
             // Set the zoom level
-            zoom: 16,
+            zoom: 17,
 
             // This sets the center of the map at our location
-            center: {
-                lat:  32.703812,
-                lng: -96.706003
-            }
+            center: { lat: 32.703, lng: -96.706 }
         };    
-
-        var trac = { lat: 32.703812, lng: -96.706003 };
-
-		// Add the marker to our existing map
-		var marker = new google.maps.Marker({
-		    position: trac,
-		    map: map
+    
+        var map = new google.maps.Map(document.getElementById('map-canvas', mapOptions), {
         });
 
-        // Create lat and long for our marker position
-		var codeup = { lat: 32.703812, lng: -96.706003 };
-
+        var animation = google.maps.Animation.DROP;
+        map.setTilt(45);
+        
 		// Add the marker to our existing map
 		var marker = new google.maps.Marker({
-   		 position: trac,
-    		map: map
-		});
-
-        // Create lat and long for our marker position
-		var trac = { lat: 32.703, lng: -96.706 };
-
-		// Add the marker to our existing map
-		var marker = new google.maps.Marker({
-    		position: trac,
-    		map: map
+   		 position: mapOptions.center,
+    		map: map,
+            animation: animation
 		});
 
 		// Create a new infoWindow object with content
-		var infowindow = new google.maps.InfoWindow({
-    	content: "Trinity River Audubon Center- A place I worked for 5 effing years! I worked outside almost everyday. Teacking students from Pre-k thru freshman in college."
+		var infowindow = new google.maps.InfoWindow ({
+    	content: "Trinity River Audubon Center- A place I worked for 5 effing years! It's a LEED certified Gold building. And, it's designed to look like a bird in flight."
     	});
 
 		// Open the window using our map and marker
 		infowindow.open(map, marker);
 
         // Render the map
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+        // var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        // map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
     })();
 
     </script>

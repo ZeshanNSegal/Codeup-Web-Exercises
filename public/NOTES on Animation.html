@@ -1,0 +1,201 @@
+NOTES on Animation, AJAX, 
+If we ever see the $ sign error in the console.log, it is because we haven't included the jquery database src... 
+use positioning- absolute or relative. 
+$('#box').animate({
+	right: "50px",
+	top:"100px"
+}, 1000);
+
+$('#animate').click(function(){
+	$('#box').animate({
+		left: "+=50px",
+		top:"100px"
+	}, 1000, function() {
+		console.log('console is our friend)');'
+	});
+});
+
+$('#box').animate({
+
+}, 2000, dunction(){
+
+});
+
+$('#animate').animate().animate().animate()---- this is a chain methods on to each other to preform one after another.. 
+
+height: "toggle", toggle takes it to 0. 
+opacity:"toggle",
+
+animation stack: 
+$("#image").animate({
+	top:"+=5o",
+	left: "+=200"
+}, 1000).animate({
+	left: "+=50"
+}, 500).animate({
+	top: "+=-50"
+}, 1000).animae({
+	left:"-250"
+}, 500);
+});
+
+$.ajax("/some-url.json");
+
+$.ajax("/some-script.php", {
+    type: "POST",
+    data: {
+        name:     "John",
+        location: "Boston"
+    }
+});
+type — The type of HTTP request to send to the server. Can be "GET", "POST", "PUT", or "DELETE". The default is "GET".
+data — Data to be included with the request. Typically this will be a JSON object. If the request type is GET the data will be encoded into the URL being requested. Otherwise, it is included with the request behind the scenes.
+dataType — The type of data we expect the server to send back from our request. Common options are "json", "xml", "html", or "text". By default, jQuery will try to guess this value based on the response content.
+url — Rather than passing the request URL as a string to $.ajax() you can just pass a JSON object on its own and include the url option to specify where to send the request. We will see an example of this further on.
+username & password — If a server requires a username and password (e.g. this Codeup curriculum app) you can specify it using these parameters.
+
+Get and Post Shorthand:
+
+$.get("/users", {
+    limit:  10,
+    offset: 20
+});
+
+The first argument is the URL we are requesting, like before. The second argument is whatever data we want to send. The above example would be the same as:
+
+$.ajax({
+    url: "/users",
+    type: "GET",
+    data: {
+        limit:  10,
+        offset: 20
+    }
+});
+
+$.post("/address/save", {
+    first_name: "George",
+    last_name:  "Weathers",
+    city:       "Denver",
+    state:      "CO"
+});
+
+Asynchronous Callbacks: 
+
+// Send ajax request
+$.ajax("/some-url.php");
+
+// Handle data from ajax request
+doSomething(ajaxData);
+
+$.ajax("/some-url.php").done(function(data) {
+    alert("AJAX call completed successfully!");
+    console.log("Data returned from server:");
+    console.log(data);
+});
+
+There are three different callbacks you can specify for an ajax request. They are:
+
+.done() — Called when the request completes successfully.
+.fail() — Called when a request completed with an error (e.g. the server sent back a 404).
+.always() — Called for both failed and successful requests.
+
+An example combining all three callback types might look like:
+
+$.ajax("example.php").done(function() {
+    alert("Everything went great!");
+}).fail(function() {
+    alert("There was an error!");
+}).always(function() {
+    alert("And we're finished!");
+});
+
+// Assign to variable
+var jqxhr = $.ajax("example.php");
+
+// Attach callback functions individually
+jqxhr.done(function() {
+    alert("Everything went great!");
+});
+
+jqxhr.fail(function() {
+    alert("There was an error!");
+});
+
+jqxhr.always(function() {
+    alert("And we're done!");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
