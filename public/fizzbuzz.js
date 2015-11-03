@@ -1,6 +1,6 @@
 "use strict"
 
-FizzBuzz");
+FizzBuzz;
 	 	body.innerHTML += "<p>FizzBuzz</p>";
 	 }
 	else if ( i % 3 == 0) {

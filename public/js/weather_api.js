@@ -3,14 +3,16 @@
 function displayNewCity(city){
 	var newCity;
 	$.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city, {
-    APPID: "a3d9eecd1b08738898fb99c7a8200755",
-     units: "imperial",
-     cnt: 3
-	}).done(function(data) {
-    console.log(data);
-	var cityWeather;
-	var newCityName = data.city.name;
-	$("h4").html(newCityName);
+    	APPID: "a3d9eecd1b08738898fb99c7a8200755",
+     	units: "imperial",
+    	 cnt: 3
+		}).done(function(data) {
+    	console.log(data);
+
+		var cityWeather;
+		var newCityName = data.city.name;
+
+		$("h4").html(newCityName);
 		data.list.forEach(function(day, i) {
 			cityWeather = "<h3>" + day.temp.max + "&deg; / " + day.temp.min + "&deg;</h3>";
 			cityWeather += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">';
@@ -19,7 +21,8 @@ function displayNewCity(city){
 			cityWeather += "<p><strong>Humidity: </strong>" + day.humidity + "</p>";
 			cityWeather += "<p><strong>Wind: </strong>" + day.speed + "</p>";
 			cityWeather += "<p><strong>Pressure: </strong>" + day.pressure + "</p>";
-			$(".day" + (i + 1)).html(cityWeather);	 
+			$(".day" + (i + 1)).html(cityWeather);	
+			 
     		console.log(moment(day.dt * 1000));
     		console.log(moment(day.dt * 1000).format("dddd, MMMM Do YYYY"));
 		});
@@ -78,9 +81,4 @@ displayNewCity("San Antonio, TX");
 		});
 
     	console.log($('#location').val());
-
     });
-
-// var date = new Date(data.list[index].dt * 1000);
-// date.toLocaleString().(0, date, toLocaleString().indexOf(',' ) );
-
