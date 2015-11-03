@@ -1,0 +1,6 @@
+NOTES on ANISIBLE
+Playbooks- create tasks, to help manage servers easily. 
+We have used anisible already. Ansible set up everything in our vagrant box on Day 1. 
+Vagrant-lamp -> Ansible File->Playbooks File(all custom built for us to be used on our servers)
+vagrant, production, and warpspeed, and deploy files all have playbooks. 
+Run playbooks from the command line
