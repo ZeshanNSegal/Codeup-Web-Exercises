@@ -1,26 +1,31 @@
 "use strict";
 
 // create a circle object
-var circle = {
+var circle = 
+{
     radius: 3,
-    getArea: function () {
+    getArea: function () 
+    {
         var area = Math.pow(this.radius, 2) * Math.PI; // todo: finish this method
         // hint: area = pi * radius^2
         return area;// todo: return data
     },
 
-    getCircumferece: function () {
+    getCircumferece: function () 
+    {
         return 2 * Math.PI * this.radius; 
-
     },
 
-    getDiameter: function() {
+    getDiameter: function() 
+    {
         return 2 * this.radius;
     },
 
-    logInfo: function (do_round) {
+    logInfo: function (do_round) 
+    {
         var area = this.getArea();
-        if (do_round) { 
+        if (do_round) 
+        { 
             area = Math.round(area);
         }
         // todo: complete this method. if round is true, round the result to the nearest integer.

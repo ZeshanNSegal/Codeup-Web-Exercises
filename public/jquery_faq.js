@@ -1,18 +1,24 @@
 "use strict"
-$(document).ready(function() {
-	$("#btn").click(function(){
+$(document).ready(function() 
+{
+	$("#btn").click(function()
+	{
 		$("dd").toggleClass("invisible:");
 	});
-	$("dt").click(function() {
+	$("dt").click(function() 
+	{
 		$(this).next("dd").toggleClass("invisible");
 	});
-	$("ul").each(function(index) {
+	$("ul").each(function(index) 
+	{
 		$(this).children().first().css("font-weight", "bold");
 	});
-	$("li").click(function() {
+	$("li").click(function() 
+	{
 		$("li").parent().addClass("invisible");
 	});
-	$("h3").click(function(){
+	$("h3").click(function()
+	{
 		$("li").parent(removeClass("invisible");
 	});
 });

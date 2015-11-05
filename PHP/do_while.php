@@ -10,7 +10,7 @@ do {
 	$a += 2;
 } while ($a <= 100);
 
-
+echo PHP_EOL . PHP_EOL
 // Alter your loop to count backwards by 5's from 
 // 100 to -10.
 
@@ -34,7 +34,7 @@ do {
 $a = 2;
 do {
 	echo "\$a is equal to {$a}" . PHP_EOL;
-	$a = $a * $a;
+	 $a *= $a;
 } while ($a <= 1000000);
 
 

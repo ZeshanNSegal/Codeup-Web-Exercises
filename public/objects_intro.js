@@ -4,7 +4,8 @@ var person = {};
 person.firstName = 'Zee';
 person.lastName = 'Segal';
 
-person.sayHello = function() {
+person.sayHello = function() 
+{
 	console.log(this.firstName + ' ' + this.lastName + ' says, "Hi everybody!"');
 };
 

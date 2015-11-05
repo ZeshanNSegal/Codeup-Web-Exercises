@@ -1,6 +1,7 @@
 "use strict";
 
-$(document).ready(function() {
+$(document).ready(function() 
+{
 	var codeup = $('.codeup'); 
 	var flanders = $('#flandersHello');
 		
@@ -11,19 +12,23 @@ $(document).ready(function() {
 	// $('h1, p, li').css('background-color', 'grey');
 	// alert( $('h1').html() );
 
-	$('h1').click(function() {
+	$('h1').click(function() 
+	{
 		$(this).css('background-color', '#998766');
 	});
 
-	$('p').dblclick(function() {
+	$('p').dblclick(function() 
+	{
 		$(this).css('font-size', '18px');
 	});
 
 	$('li').hover(
-		function() {
+		function() 
+		{
 			$(this).css('color', 'red');
-		}, 
-		function() {
+		}; 
+		function() 
+		{
 			$(this).css('color', 'initial');
 		}
 	);

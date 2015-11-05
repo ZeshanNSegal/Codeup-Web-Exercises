@@ -22,8 +22,10 @@ while ($oddNum <= 100) {
 	$oddNum += 2;
 }
 
+// // Example from class below for do-while loop
 
+// do {
+// 	echo "Please input your name";
+// 	$name = getValidNameFromUser();
 
-
-
-?>
+// } while (!is_string($name));

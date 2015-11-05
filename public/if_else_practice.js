@@ -9,19 +9,24 @@ var message;
 
 // TODO: Create a block of if/else statements to check for every color except indigo and violet.
 
-if (color == 'red'){
+if (color == 'red')
+{
 	message = "Red is a color in the rainbow";
 } 
-else if (color == 'orange'){
+else if (color == 'orange')
+{
 	message = "Orange is a color in the rainbow";
 }
-else if (color == 'yellow'){
+else if (color == 'yellow')
+{
 	message = 'Yellow is a color in the rainbow';
 }
-else if (color == 'green'){
+else if (color == 'green')
+{
 	message = 'Green is a color in the rainbow';
 }
-else if (color == 'blue'){
+else if (color == 'blue')
+{
 	message = 'Blue is a color in the bow';
 }
 else {

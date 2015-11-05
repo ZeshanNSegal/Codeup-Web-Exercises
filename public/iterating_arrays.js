@@ -76,12 +76,13 @@
 
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo'];
 
-for (var i = 0; i < colors.length; i+= 1) {
+for (var i = 0; i < colors.length; i += 1) {
 	console.log('The color at index ' + i + ' is: ' + colors[i]);
 }
 
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo'];
-colors.forEach(function (element, index, array){
+colors.forEach(function (element, index, array)
+{
 	console.log('The color at index ' + index + ' is: ' + element);
 });
 
@@ -92,7 +93,7 @@ colors.forEach(function (element, index, array){
 // can push multiple elements ( in this case tacos) using a comma seperator... 'bean', 'chicken', 'egg', etc... 
 // arrays can hold different types of data: strings, values, and can add differnet values like booleans, numbers, etc. all to the same array (in this example, the taco array could have numbers added, booleans, etc.)
 
-var beatles = [' John', 'Paul' 'Ringo', 'George'];
+var beatles = ['John', 'Paul' 'Ringo', 'George'];
 
 beatles.push('Bob Dylan');
 

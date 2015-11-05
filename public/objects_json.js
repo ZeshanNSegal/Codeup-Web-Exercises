@@ -8,7 +8,8 @@ var books = [
 	{
 		title: "Snow Crash",
 
-		author: {
+		author: 
+		{
 			firstName: "Neal", 
 			lastName: "Stephenson" 
 		},
@@ -19,10 +20,11 @@ var books = [
 	{
 		title: "Rant: The Oral Biography of Buster Casey",
 
-		author: {
+		author: 
+		{
 			firstName: "Chuck", 
 			lastName: "Palahniuk"
-			},
+		},
 
 		genre: "Satire"
 	},
@@ -30,10 +32,11 @@ var books = [
 	{
 		title: "Another Roadside Attraction",
 
-		author: {
+		author: 
+		{
 			firstName: "Tom",
 			lastName: "Robbins"
-			},
+		},
 
 		genre: "Historical Fiction"
 	},
@@ -41,10 +44,11 @@ var books = [
 	{
 		title: "Ready Player One",
 
-		author: {
+		author: 
+		{
 			firstName: "Ernest",
 			lastName: "Cline"
-			},
+		},
 
 		genre: "Science Fiction"
 	},
@@ -52,10 +56,11 @@ var books = [
 	{
 		title: "And You Shall Know Our Velocity",
 
-		author: {
+		author: 
+		{
 			firstName: "David", 
 			lastName: "Eggers"
-			},
+		},
 
 		genre: "Fiction"
 	},
@@ -63,7 +68,8 @@ var books = [
 	{
 		title:"One Hundred Years of Solitude",
 
-		author: {
+		author: 
+		{
 			firstName: "Gabriel",
 			lastName: "Garcia Marquez"
 		},
@@ -79,7 +85,8 @@ console.log(books);
 // todo:
 // Loop through the array of books using .forEach and print out the specified information about each one.
 // start loop here
-books.forEach(function (book, index) {
+books.forEach(function (book, index) 
+{
 	console.log("-------------------------------------------------");
     console.log("Book #" + (index +1));
     console.log("Title: " + book.title);
