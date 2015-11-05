@@ -1,36 +1,5 @@
 <?php
 
-// $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, (string) 11);
-// foreach ($things as $eachThing)
-// {
-// 	if (is_int($eachThing))
-// 	{
-// 		echo "{$eachThing} is an integer" . PHP_EOL;
-// 	}
-// 	else if (is_float($eachThing))
-// 	{
-// 		echo "{$eachThing} is a floating number" .PHP_EOL;
-// 	}
-// 	else if (is_bool($eachThing))
-// 	{
-// 		echo "{$eachThing} is a boolean" . PHP_EOL;
-// 	}	
-// 	else if (is_array($eachThing))
-// 	{
-// 		foreach ($eachThing as $arrayed){
-// 			echo "{$arrayed} is part of an array" . PHP_EOL;
-// 		}
-// 	}	
-// 	else if (is_null($eachThing))
-// 	{
-// 		echo "{$eachThing} is null" . PHP_EOL;
-// 	}
-// 	else if (is_string($eachThing))
-// 	{
-// 		echo "{$eachThing} is a string" . PHP_EOL;
-// 	}	
-// }	
-
 $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, (string) 11);
 
 foreach ($things as $thing1) 
