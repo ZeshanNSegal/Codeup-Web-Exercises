@@ -1,0 +1,11 @@
+NOTES ON PHP WEEK OF NOV 9
+
+file pointer-location, file type, information contained within, and where it is located- resource
+
+A pointer to a file is known as a resource handle. 
+flat files- txt. files, csv. files are flat files... non-executable files... sublime is a program that you open flat files with. 
+
+PARSE- "pars"- latin for "parts", old French
+"pars" Middle Eng. for "parts of speech"
+
+To analyze a string of text into logical components based on rules of grammar and syntax. 
