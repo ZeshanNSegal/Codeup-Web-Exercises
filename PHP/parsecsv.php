@@ -1,8 +1,5 @@
 <?php
 
-// Output should include:
-// - avg units sold per employee
-//get file, trim, and explode strings on line break
 function parseNames($filename)
 {
     $employeeNames = array();
@@ -30,13 +27,14 @@ function parseNames($filename)
 		];		
 	} 
 	//sort array from high to low
-	arsort($reportArray); //sorts by first value(in this case- Units_Sold)
+	arsort($reportArray); //sorts by first index(in this case- Units_Sold)
 	return $reportArray;
 }
 
+//gives equal spacing based on total length of spaces minus length of string
 function spacing ($totalCharacters, $stringValue)
 {
-	$lengthOfString = strlen($stringValue);
+	$lengthOfString = strlen($stringValue); //turns value of integers into strings
 	$numberOfSpaces = $totalCharacters - $lengthOfString;
 	$stringValueWithSpaces = $stringValue;
 	for ($i=0; $i<$numberOfSpaces; $i++){
@@ -45,16 +43,23 @@ function spacing ($totalCharacters, $stringValue)
 	return $stringValueWithSpaces;
 }
 
+echo "====================================================================" . PHP_EOL;
+//grabs text file and renames as a variable
 $unitsSorted = parseNames('parsecsv.txt');
 
-function countEmployees($array){
+//count employees
+function countEmployees($array)
+{
 	return count($array);
 }
 
+//gets the number of employees to count from line 51- $unitsSorted echos it out to HRO- human readable output
 $employeeCount = countEmployees($unitsSorted);
-echo "There are {$employeeCount} employees working." . PHP_EOL;
+echo "There are {$employeeCount} total employees working." . PHP_EOL;
 
-function soldUnits($array){
+//adds units sold from all employees together
+function soldUnits($array)
+{
 	$sumOfUnitsSold = 0;
 	foreach ($array as $key => $value) {
 		$sumOfUnitsSold = $value['Units_Sold'] + $sumOfUnitsSold;
@@ -63,15 +68,18 @@ function soldUnits($array){
 }
 
 $unitsSold = soldUnits($unitsSorted);
-echo "The company sold {$unitsSold} products." . PHP_EOL;
+echo "The company sold {$unitsSold} total products." . PHP_EOL;
 
-function avgUnitsSold($IntUnitsSold, $IntEmployeeCount){
+//gets the avg. of untis sold/employees
+function avgUnitsSold($IntUnitsSold, $IntEmployeeCount)
+{
 	$avgUnitsPerEmployee = $IntUnitsSold / $IntEmployeeCount;
 	return $avgUnitsPerEmployee;
 }
 
+//avg units/employees math
 $avg = avgUnitsSold($unitsSold, $employeeCount);
-echo "The average number of units per employee = {$avg}" . PHP_EOL;
+echo "The average number of units sold per employee = {$avg}." . PHP_EOL;
 
 soldUnits ($unitsSorted) . PHP_EOL;
 
@@ -82,21 +90,3 @@ echo "====================================================================" . PH
 foreach ($unitsSorted as $employee) {
 	echo spacing(10, $employee['Units_Sold']) . '|' . spacing(40, $employee['Full_Name']) . '|' . spacing(10, $employee['Employee_Number']) . PHP_EOL;
 }
-
-// created a function called spacing with two values $tc and $sv. b/c of type juggling, we had to create $los and set it equal to the int. of $sv and strlen gets us the length of $sv. Next, we got the $nos by subtracting the $tc from the $los. We set $svws = to $sv(which is now a strlen). Created a for loop to set the units spacing. We returned the $svws. Last, we created a foreach loop to sort thru the employees[units sold] to create the spacing needed to get the values lined up based on 10 characters. So ten minus 2 characters would give us 8 empty spaces after the stringvalue. Has to be after $us has been defined! 
-
-// echo $employee['Units_Sold'];
-// var_dump($unitsSorted);
-// echo formattedArray($unitsSorted);
-// print_r($unitsSorted);
-
-// $averageOfUnits = array_sum($employeePersonArray)/ count($employeePersonArray);
-// echo "sum(a) = " . array_sum($a) . "\n";
-// echo count($employeePersonArray[0], COUNT_RECURSIVE);
-// echo count($fullName, COUNT_RECURSIVE);
-
-
-//figure out how to create space length that does the things below: 
-//length of units, full name, and employee number
-//line up code- move employee number back, and assoc. values, line up the units, move Full Names back and center
-//create a function takes in two values how many spaces total and the string to put in. 
