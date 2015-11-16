@@ -1,2 +1,59 @@
 notes.php
-NOTES ON PHP NOV 11, 2015
+NOTES ON PHP with HTML NOV 11, 2015
+
+<?php 
+$message = 'Hello Hampton!!';	
+$google = google.com
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello Hammies!</title>
+</head>
+<body>
+	<h1>My first PHP/HTML File!</h1>
+
+	<h2 class= "heading-two center" id="my-second-heading"><?php echo $message; ?>
+	</h2>
+	<a heref="<?php $google; ?>">Go To Google!</a>
+
+	<?php if (true) { ?>
+		<h3>Hello Codeup!</h3>
+	<?php } else { ?>
+		<h3>Goodbye Codeup!</h3>
+	<?php } ?>
+
+
+	<h3>Some People in Hampton are:</h3>
+
+	<ul>
+		<?php foreach($names as $person) { ?>
+			<li><?php echo $person; ?></li>
+			<?php } ?>
+	</ul>
+</body>
+</html>
+
+
+
+don't use r+, w+, a+-- instead have two handles a $handle ($inputfile, 'r') and another $handle($inputfile, 'a')--- does the same thing but opens two versions. One for reading and one for writing. 
+
+$lines = explode(PHP_EOL, trim($contents)); explode and trim at the same time. 
+
+PHP code can't be seen in the inspect element/console. 
+
+If you have php code you want to be seen on screen, you must put it in <?php echo $message?> tags. 
+
+Most of PHP code will go above <!DOCTYPE html> include files, declare classes, outside of html. Only thing that belongs in html tags is where you are actually echoing out data. 
+
+Keep most out of HTML to make it easier on yourself. 
+Keep HTML outside of PHP, as much as possible. Keep strings clean and short. 
+example of best practice:
+ <h2 class= "heading-two center" id="my-second-heading"><?php echo $message; ?>
+</h2>
+versus:	<?php echo"<h2 class="heading-two-center" id="my-second-heading">$message</h2>"; ?>
+
+First one is cleaner, and easier to read. Also gives HTML highlights properly. 
+
+

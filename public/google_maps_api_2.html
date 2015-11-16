@@ -1,0 +1,62 @@
+<!-- AIzaSyAKHyLR3AalaxdpbAfwPd4jf5S3ZkYIixo  MY API KEY-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            width: 700px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKHyLR3AalaxdpbAfwPd4jf5S3ZkYIixo"></script>
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+    (function() {
+        "use strict";
+        
+		var trac = { lat: 32.703812, lng: -96.706003 };
+
+        var mapOptions = {
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+            // Set the zoom level
+            zoom: 17,
+
+            // This sets the center of the map at our location
+            center: { lat: 32.703, lng: -96.706 }
+        };    
+    
+        var map = new google.maps.Map(document.getElementById('map-canvas', mapOptions), {
+        });
+
+        var animation = google.maps.Animation.DROP;
+        map.setTilt(45);
+        
+		// Add the marker to our existing map
+		var marker = new google.maps.Marker({
+   		 position: mapOptions.center,
+    		map: map,
+            animation: animation
+		});
+
+		// Create a new infoWindow object with content
+		var infowindow = new google.maps.InfoWindow ({
+    	content: "Trinity River Audubon Center- A place I worked for 5 effing years! It's a LEED certified Gold building. And, it's designed to look like a bird in flight."
+    	});
+
+		// Open the window using our map and marker
+		infowindow.open(map, marker);
+
+        // Render the map
+        // var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        // map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+    })();
+
+    </script>
+</body>

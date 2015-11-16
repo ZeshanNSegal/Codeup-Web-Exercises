@@ -24,7 +24,7 @@ function parseNames($filename)
 			'Units_Sold' => $employeePersonArray[3],
 			'Full_Name' => $fullName,
 			'Employee_Number' => $employeePersonArray[0]
-		];		
+		];
 	} 
 	//sort array from high to low
 	arsort($reportArray); //sorts by first index(in this case- Units_Sold)
@@ -44,6 +44,7 @@ function spacing ($totalCharacters, $stringValue)
 }
 
 echo "====================================================================" . PHP_EOL;
+
 //grabs text file and renames as a variable
 $unitsSorted = parseNames('parsecsv.txt');
 

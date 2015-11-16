@@ -1,0 +1,58 @@
+Models are used to represent data. 
+File parsing excercise... the model would be the array mirrored in the data set. 
+Controller ties and manages logic, end goals, it does the "thinking" for how things should work. 
+View is how we present the info to the user. 
+Page controller function- returns an array of data. It's the data we want presented in on the page. 
+
+<?php date_default_timezone_set('America/Chicago'); ?>
+
+<?php 
+Page Controller needs to return an array with the values we want to use in the code below it. 
+
+function pageController()
+{
+	//do all the necessary buisness logic for my page
+
+	//call whatever other functions are needed(run the code)
+$hour = date('G');
+$google = google.com;
+	
+
+}
+page controller returns an array and we use this data in our code below. 
+
+
+$data = pageController();
+
+// extract function- new function
+extract($data)
+// - takes the array from $pageController and turns into 
+
+if($hour < 12): ?>
+	<h3>Good Morning!</h3>
+<?php if($hour < 18): ?>
+
+query strings are key => value pairs
+part of an associative array 
+seperator between multiple key => value pairs is the '&' symbol
+Default method is a get request if you don't put it on your form. 
+
+var_dump($_GET) is an array in PHP we can do the same things with this that we do with anything else in PHP. 
+/////////////////////////////////
+
+$personName= 'Hampton';
+
+if(isset($_GET['person_name'])) {
+($personName = $_GET['person_name]);
+}
+
+ternary version of example above: 
+$personName = isset($_GET['person_name']) ? $_GET['person_name] : 'Hampton' ;
+
+$xxxxx = variable equals condition ? if condition is met do this part before question mark : if not set then use Hampton as default. 
+/////////////////////////////////
+
+GET good for retrieving from the server
+POST intended for modifying and changing stuff on the server
+
+

@@ -1,0 +1,9 @@
+Query string is a key => value pair. Search beethoven on Youtube: https://www.youtube.com/results?search_query=beethoven
+everything behind question mark tellls you that this is a query string. 
+
+placeholdit.com- image placeholder website
+
+xss-
+cross-site scripting. 
+
+Sessions- allow you to store info abou the client, and what they are doing in key/value pairs. If we want to take those values across page loads. FB login and continue to be logged in. Sessions save that server side. Active sessions don't log you out. 

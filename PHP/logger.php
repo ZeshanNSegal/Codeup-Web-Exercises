@@ -21,6 +21,17 @@ function logError($message)
 	logMessage("ERROR", $message);	
 }
 
+function logWarning($message)
+{
+	logMessage("WARNING", $message);
+}
+
+function logCritical($message)
+{
+	logMessage("CRITICAL", $message);
+}
+
 logInfo("This is an INFO message.");
 logError("This is an ERROR message.");
-
+logWarning("This is a WARNING message.");
+logCritical("This is a CRITICAL message.");
