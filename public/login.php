@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+require('functions.php');
 
 session_start();
 // get the current session id
@@ -13,18 +13,18 @@ function pageController()
 		die();
 	}
 
-	$userName = isset($_POST['userName']) ? htmlspecialchars(strip_tags($_POST['userName'])) : '';
-	$password = isset($_POST['password']) ? htmlspecialchars(strip_tags($_POST['password'])) : '';
+	$userName = inputHas('userName') ? escape($_REQUEST['userName']) : '';
+	$password = inputHas('password') ? escape($_REQUEST['password']) : '';
 	$login = '';
 
 	if($userName != '' || $password != ''){
 		if ($userName == 'guest' && $password == 'password')
 		{
-				$_SESSION['LOGGED_IN_USER'] = $userName;
-				header("Location: authorized.php");
-				die();
+			$_SESSION['LOGGED_IN_USER'] = $userName;
+			header("Location: authorized.php");
+			die();
 		} else{
-			 	$login = 'LoginFailed';
+			$login = 'LoginFailed';
 		}
 	}
 
@@ -57,6 +57,5 @@ extract(pageController());
 	    </form>
 	    <h2><?= $login ?><h2>
     </div>
-    <?= $sessionId ?>
 </body>
 </html>

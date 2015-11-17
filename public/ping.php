@@ -1,15 +1,16 @@
 <?php
+require('functions.php');
 
 function pageController()
 {
-	if (isset($_GET['gameOver'])) {
-		$gameOver = $_GET['gameOver'];
+	if (inputHas('gameOver')) {
+		$gameOver = inputGet('gameOver');
 		return array(
 			'gameOver' => $gameOver 
 		);
 	}
 
-	$counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
+	$counter = inputHas('counter') ? inputGet('counter') : 0;
 	$hit = $counter + 1;
 	$miss = $counter;
 

@@ -1,9 +1,10 @@
 <?php
-var_dump($_POST);
+require('functions.php');
+
 session_start();
 $sessionId = session_id();
 
-if(!isset($_SESSION['LOGGED_IN_USER']) || !$_SESSION['LOGGED_IN_USER']){
+if (!isset($_SESSION['LOGGED_IN_USER'])){
 	header("Location: login.php");
 	die();
 } else {
