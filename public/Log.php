@@ -2,7 +2,14 @@
 
 class Log
 {
-	public $filename = '';
+	public $handle;
+	public $fileName;
+
+	public function __construct($prefix = 'log')
+	{
+		$this->fileName = "data_log/" . $prefix . "-" . date("Y-m-d") . ".log";
+		$this->handle = fopen($this->fileName, 'a');
+	}
 
 	public function logMessage($logLevel, $message)
 	{
@@ -11,18 +18,22 @@ class Log
 		$todaysDateTime= date("h:i:s A");
 
 		//Append string to file if file exists or create file and write
-		$handle = fopen($this->filename, 'a');
 		$formattedMessage = $todaysDate . " ". $todaysDateTime .  " " . $logLevel . " " . $message . PHP_EOL;
-		fwrite($handle, $formattedMessage);
-		fclose($handle);	
+		fwrite($this->handle, $formattedMessage);
 	}
 
-	public function info($message){
+	public function info($message)
+	{
 		$this->logMessage("Info", $message);
 	}
 
-	public function error($message){
+	public function error($message)
+	{
 		$this->logMessage("Error", $message);
+	}
+
+	public function __destruct(){
+		fclose($this->handle);
 	}
 }
 ?>

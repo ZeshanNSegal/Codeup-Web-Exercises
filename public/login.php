@@ -8,24 +8,23 @@ $sessionId = session_id();
 function pageController()
 {
 
-	if (isset($_SESSION['LOGGED_IN_USER'])){
+	if (isset($_SESSION['LOGGED_IN_USER']))
+	{
 		header("Location: authorized.php"); 
 		die();
 	}
 
-	$userName = inputHas('userName') ? escape($_REQUEST['userName']) : '';
-	$password = inputHas('password') ? escape($_REQUEST['password']) : '';
+	$userName = inputGet('userName');
+	$password = inputGet('password');
 	$login = '';
 
-	if($userName != '' || $password != ''){
-		if ($userName == 'guest' && $password == 'password')
-		{
-			$_SESSION['LOGGED_IN_USER'] = $userName;
-			header("Location: authorized.php");
-			die();
-		} else{
-			$login = 'LoginFailed';
-		}
+	if ($userName == 'guest' && $password == 'password')
+	{
+		$_SESSION['LOGGED_IN_USER'] = $userName;
+		header("Location: authorized.php");
+		die();
+	} else if ($userName != null || $password != null) {
+		$login = 'LoginFailed';
 	}
 
 	return array(
