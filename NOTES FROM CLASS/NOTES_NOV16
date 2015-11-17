@@ -7,3 +7,17 @@ xss-
 cross-site scripting. 
 
 Sessions- allow you to store info abou the client, and what they are doing in key/value pairs. If we want to take those values across page loads. FB login and continue to be logged in. Sessions save that server side. Active sessions don't log you out. 
+
+input has works great for check boxes. 
+inputhas, gets, escape mirrors of Larval
+
+class = function definition
+object creates what class has defined? 
+instantiate= take class and have a new instance of the object
+procedural code is the code that actually does stuff
+properties are variables that live on the object
+honk, rev engine and get description are 
+once class per file. 
+procedural code runs from top to bottom like a waterfall. 
+methds have () because they are like functions
+the class in php is like a blueprint... 

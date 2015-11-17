@@ -1,5 +1,5 @@
 <?php
-require('functions.php');
+require_once('functions.php');
 
 session_start();
 // get the current session id
