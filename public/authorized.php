@@ -1,5 +1,5 @@
 <?php
-require('functions.php');
+require 'functions.php';
 
 session_start();
 $sessionId = session_id();
@@ -10,9 +10,9 @@ if (!isset($_SESSION['LOGGED_IN_USER'])){
 } else {
 	$username = $_SESSION['LOGGED_IN_USER'];
 }
-// get the current session id
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

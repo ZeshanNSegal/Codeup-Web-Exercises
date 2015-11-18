@@ -1,40 +1,27 @@
 <?php
-require_once('functions.php');
+require_once '../Auth.php';
+require_once '../Input.php';
 
 session_start();
 // get the current session id
 $sessionId = session_id();
 
-function pageController()
+$userName = Input::get('userName');
+$password = Input::get('password');
+$login = '';
+
+if(Auth::check())
 {
-
-	if (isset($_SESSION['LOGGED_IN_USER']))
-	{
-		header("Location: authorized.php"); 
-		die();
-	}
-
-	$userName = inputGet('userName');
-	$password = inputGet('password');
-	$login = '';
-
-	if ($userName == 'guest' && $password == 'password')
-	{
-		$_SESSION['LOGGED_IN_USER'] = $userName;
-		header("Location: authorized.php");
-		die();
-	} else if ($userName != null || $password != null) {
-		$login = 'LoginFailed';
-	}
-
-	return array(
-		'userName'=> $userName, 
-		'password'=> $password, 
-		'login' => $login
-	);
+	header("Location: authorized.php"); 
+	die();
 }
 
-extract(pageController());
+if(Auth::attempt($userName, $password))
+{
+	header("Location: authorized.php");
+	die();
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +36,8 @@ extract(pageController());
 	<div id = "container">
 	    <form method="POST">
 	        <label>UserName:</label>
-	        <input value="<?=$userName?>" type="text" name="userName"><br>
-	        <label>Password: </label>
+	        <input value="<?= Input::escape($userName)?>" type="text" name="userName"><br>
+	        <label>Password:</label>
 	        <input type="password" name="password"><br>
 	        <input type="submit">
 	    </form>
