@@ -1,14 +1,14 @@
 <?php
-require 'functions.php';
+require '../Auth.php';
 
 session_start();
 $sessionId = session_id();
 
-if (!isset($_SESSION['LOGGED_IN_USER'])){
+if (!Auth::check()){
 	header("Location: login.php");
 	die();
 } else {
-	$username = $_SESSION['LOGGED_IN_USER'];
+	$username = Auth::user();
 }
 
 ?>

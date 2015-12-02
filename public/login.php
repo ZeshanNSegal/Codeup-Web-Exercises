@@ -10,6 +10,8 @@ $userName = Input::get('userName');
 $password = Input::get('password');
 $login = '';
 
+
+// why is this an if statement and the line below it, as well? 
 if(Auth::check())
 {
 	header("Location: authorized.php"); 

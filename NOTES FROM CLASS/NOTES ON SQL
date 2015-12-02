@@ -1,0 +1,11 @@
+NOTES ON SQL 
+#vocab:
+-migration: 
+	-creates structure for a table
+	-modify existing tables or drop and re-create
+-seeder: it's data we use to seed a table
+-CRUD
+	-Create
+	-Read
+	-Update
+	-Destroy
