@@ -1,0 +1,50 @@
+/* select employees.emp_no, employees.first_name, employees.last_name, titles.title 
+FROM employees 
+JOIN titles ON titles.emp_no = employees.empl_no
+; 
+
+
+ORRRRRRR */
+
+/* SELECT e.emp_no, e.first_name, e.last_name, t.title 
+FROM employees AS e
+JOIN titles AS t ON t.emp_no = e.empl_no
+WHERE t.to_date > now() AND t.from_date <= now()
+; */
+
+-- ORRRRRRR
+/* 
+SELECT t.emp_no, t.first_name, t.last_name, t.title 
+FROM employees e
+JOIN titles t ON t.emp_no = e.empl_no
+; */
+
+-- this brings a temporal DB... duplicates over time... 
+-- all 3 are the same, but written out differently. 
+-- find what the two (or more tables) have in common. 
+-- join users and roles-- > Below:
+
+/* SELECT * FROM users AS u
+LEFT JOIN roles AS r ON u.role_id = r.id
+; */
+
+-- LEFT JOIN tells sql the data fromt he left most table (the FROM data table) want all that data, and then join in any data from the right table
+-- 
+
+/* SELECT * FROM users AS u
+RIGHT JOIN roles AS r ON u.role_id = r.id
+; */
+
+-- RIGHT JOIN tells sql the data fromt he right most table (the right data table) want all that data, and then join in any data from the left side table
+--
+
+-- SELECT * FROM users AS u
+/* RIGHT JOIN roles AS r ON u.role_id = r.id
+; */
+
+/* 
+SELECT u.id, u.email, r.id AS 'role_id', r.display_name
+FORM users AS U
+LEFT JOIN role_users AS ru ON ru.user_id = u.id
+LEFT JOIN roles AS r on r.id = ru.role_id
+; */

@@ -1,0 +1,38 @@
+p {
+	color: black;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+body {
+	margin: 10px;
+	background-image: url(/img/nat_parks.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#next {
+	position: absolute;
+	right: 10px;
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: grey;
+}
+
+table{
+	margin-top: 75px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.pager{
+	color:red;
+	margin-left: -80px;
+}
+
+a:first-child{
+	font-weight: bold;
+	color: red;
+}
