@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 // Tell PDO to throw exceptions on error
 // Tell PDO to throw exceptions on error

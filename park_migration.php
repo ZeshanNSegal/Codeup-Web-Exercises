@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 require_once 'config.php';
 require_once 'db_connect.php';
@@ -13,7 +13,8 @@ $query = 'CREATE TABLE national_parks (
     location VARCHAR(100) NOT NULL,
     date_est DATE NOT NULL,
     area DOUBLE(20,2) NULL,
-    url VARCHAR(240) NOT NULL,
+    url VARCHAR(240),
+    description TEXT NOT NULL, 
     PRIMARY KEY (id)
 )';
 

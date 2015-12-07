@@ -1,7 +1,8 @@
 p {
 	color: black;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bold;
+	text-align: right;
 }
 
 body {
@@ -21,7 +22,6 @@ body {
 }
 
 table{
-	margin-top: 75px;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
@@ -32,7 +32,18 @@ table{
 	margin-left: -80px;
 }
 
-a:first-child{
+form, button {
+	margin: 10px;
 	font-weight: bold;
-	color: red;
+	text-align: center;
+	font-weight: bold;
+	color: black;
 }
+
+.anchorHolder{
+	text-align:center;
+}
+
+
+
+
