@@ -2,13 +2,22 @@
 
 class Log
 {
-	public $handle;
-	public $fileName;
+	private $handle;
+	protected $fileName;
 
 	public function __construct($prefix = 'log')
 	{
-		$this->fileName = "data_log/" . $prefix . "-" . date("Y-m-d") . ".log";
+		$this->setFileName("data_log/" . $prefix . "-" . date("Y-m-d") . ".log");
 		$this->handle = fopen($this->fileName, 'a');
+	}
+
+	protected function setFileName($fileName)
+	{
+		$this->fileName= (is_string($fileName)) ? trim($fileName) : NULL;
+
+		if (is_writeable($this->fileName)){
+			touch($this->fileName);
+		}
 	}
 
 	public function logMessage($logLevel, $message)

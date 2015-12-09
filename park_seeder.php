@@ -25,17 +25,18 @@ $parks = [
 
 ];
 
-foreach ($parks as $park) {
-    $query = "INSERT INTO national_parks (name, location, date_est, area, url, description) 
-    			VALUES (:name, 
-	    			:location, 
-	    			:date_est, 
-	    			:area,
-	    			:url,
-	    			:description)";
+$query = "INSERT INTO national_parks (name, location, date_est, area, url, description) 
+			VALUES (:name, 
+    			:location, 
+    			:date_est, 
+    			:area,
+    			:url,
+    			:description)";
 
- 
- 	$stmt = $dbc->prepare($query);
+
+$stmt = $dbc->prepare($query);
+
+foreach ($parks as $park) {
 	$stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
 	$stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
 	$stmt->bindValue(':date_est', $park['date_est'], PDO::PARAM_STR);
