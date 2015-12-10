@@ -1,7 +1,4 @@
 <?php
-require_once 'Input.php';
-require_once 'Log.php';
-require_once 'config.php';
 
 class Model 
 {
@@ -19,9 +16,10 @@ class Model
     {
         if (!self::$dbc)
         {
-            self::$dbc = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        	self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          require_once 'db_connect.php';
+          self::$dbc = $dbc;
         }
+
     }
 
     public function __set($name, $value)
@@ -60,9 +58,9 @@ class Model
 
 	protected function insert()
 	{
-	    $query = "INSERT INTO " . static::$table . " (first_name, last_name, email, phone, address, city, state, zip) 
-	    VALUES (
-	    		:first_name, :last_name, :email, :phone, :address, :city, :state, :zip)";
+	    $query = 'INSERT INTO ' . static::$table . ' (first_name, last_name, email, phone, address, city, state, zip) 
+	    	VALUES (
+    		:first_name, :last_name, :email, :phone, :address, :city, :state, :zip)';
 
 	    $stmt = self::$dbc->prepare($query);
 
@@ -83,7 +81,7 @@ class Model
 	protected function update($id)
 	{
 
-		$query = "UPDATE" . static::$table . " SET ";
+		$query = 'UPDATE ' . static::$table . ' SET ';
 		$first_value = true;
 
 		foreach ($this->attributes as $key => $value)
@@ -103,16 +101,12 @@ class Model
 			}
 		} 
 
-		$query .= 'WHERE id = ' . $id;
+		$query .= ' WHERE id = :id';
 
 		$stmt = self::$dbc->prepare($query);
 
 		foreach ($this->attributes as $key => $value)
 		{
-			if ($key == 'id')
-			{
-				continue;
-			}		
 			$stmt->bindValue(':' . $key, $value, PDO::PARAM_STR);
 		}
 
@@ -123,7 +117,7 @@ class Model
     {
         self::dbConnect();
 
-        $query = "SELECT * FROM " . static::$table . " WHERE id = :id";
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
 
         $stmt = self::$dbc->prepare($query);
        	$stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -143,7 +137,7 @@ class Model
     public static function all()
     {
         self::dbConnect();
-        $query = "SELECT * FROM " . static::$table;
+        $query = 'SELECT * FROM ' . static::$table;
 
         $stmt = self::$dbc->prepare($query);
        	$stmt->execute();
@@ -162,7 +156,7 @@ class Model
     public static function delete($id)
 	{
 		self::dbConnect();
-		$query = "DELETE FROM " . static::$table . " WHERE id = :id";
+		$query = 'DELETE FROM ' . static::$table . ' WHERE id = :id';
 
 		$stmt = self::$dbc->prepare($query);
        	$stmt->bindValue(':id', $id, PDO::PARAM_INT);
