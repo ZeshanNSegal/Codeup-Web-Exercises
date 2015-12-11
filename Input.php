@@ -11,13 +11,13 @@ class Input
 
     public static function notEmpty($key)
     {
-        // TODO: Fill in this function
+        # // TODO: Fill in this function
         if(isset($_REQUEST[$key]) && $_REQUEST[$key] != ''){
             return true;
         }
         return false;
     }
-    
+
     public static function has($key)
     {
         if(isset ($_REQUEST[$key]))
@@ -25,6 +25,34 @@ class Input
             return true;
         } 
         return false;
+    }
+
+    public static function getString($key)
+    {
+        $value = trim(self::get($key));
+        if(!is_string ($value)){
+            throw new Exception ("{$key} must be a string!");
+        }
+         return $value;
+    }
+
+    public static function getNumber($key)
+    {
+        $value = trim(str_replace(",", "", self::get($key)));
+        if (!is_numeric ($value)){
+            throw new Exception ("{$key} must be a number!");
+        }    
+        return $value;
+    }
+
+    public static function getDate($key)
+    {
+        $date = self::get($key);
+        if(!strtotime($date)){
+            throw new Exception ("The date must be a in format: yyyy-mm-dd!");
+        } else{
+            return date("y-m-d", strtotime($date));
+        }          
     }
 
     /**

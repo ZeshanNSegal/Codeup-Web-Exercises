@@ -1,6 +1,6 @@
 <?PHP
 
-require_once '../config.php';
+require_once '../nat_config.php';
 require_once '../db_connect.php';
 require_once '../input.php';
 
@@ -17,46 +17,101 @@ function getAllParks($dbc, $limit, $offset){
 	return $parks;
 }
 
-function checkFormEntry(){
+function checkFormEntry()
+{
 	return Input::get('name') != '' && Input::get('location') != '' && Input::get('date_est')  != '' && Input::get('area')  != '' && Input::get('description') != '';
+}
+
+function deletePark($dbc)
+{	
+	if (!empty($_POST) && Input::get('park_to_delete') != '' )
+	{
+		var_dump(Input::get('park_to_delete'));
+		$park_to_delete= Input::getString('park_to_delete');
+		$stmt = $dbc->prepare('DELETE FROM national_parks WHERE name= :park_to_delete;');
+		$stmt->bindValue(':park_to_delete', $park_to_delete, PDO::PARAM_STR);
+		$stmt->execute();
+
+		$limit = 3; 
+		$pageNumber = Input::has('pageNumber') ? Input::get('pageNumber') : 1;
+		$next = $pageNumber + 1;
+		$previous= $pageNumber - 1;
+		$offset= ($limit * $pageNumber - $limit);
+		$parks = getAllParks($dbc, $limit, $offset);
+	}
 }
 
 function pageController($dbc)
 {
+	$errors = [];
 	$limit = 3; 
 	$pageNumber = Input::has('pageNumber') ? Input::get('pageNumber') : 1;
 	$next = $pageNumber + 1;
 	$previous= $pageNumber - 1;
-	$offset= ($limit * $pageNumber - $limit);
+	$offset = ($limit * $pageNumber - $limit);
 
 	$count = $dbc->query('SELECT COUNT(*) FROM national_parks;')->fetchColumn();
 
 	if (!empty($_POST) && checkFormEntry()) 
 	{
-		$name = Input::get('name');
-		$location = Input::get('location');
-		$date_est = Input::get('date_est');
-		$area = Input::get('area');
-		$url = Input::get('url');
-		$description = Input::get('description');
+		
+			try {
+				$name = Input::getString('name');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());	 
+			}
 
-	 	$query = "INSERT INTO national_parks (name, location, date_est, area, url, description) 
-    			VALUES (
-    				:name, 
-	    			:location, 
-	    			:date_est, 
-	    			:area,
-	    			:url,
-	    			:description)";
+			try {
+				$location = Input::getString('location');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());
+			}
+	
+			try {
+				$date_est = Input::getDate('date_est');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());
+			}
 
-		$stmt = $dbc->prepare($query);
-		$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-		$stmt->bindValue(':location', $location, PDO::PARAM_STR);
-		$stmt->bindValue(':date_est', $date_est, PDO::PARAM_STR);
-		$stmt->bindValue(':area', $area, PDO::PARAM_STR);
-		$stmt->bindValue(':url', $url, PDO::PARAM_STR);
-		$stmt->bindValue(':description', $description, PDO::PARAM_STR);
-		$stmt->execute();
+			try {
+				$area = Input::getNumber('area');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());
+			}
+
+			try {
+				$url = Input::getString('url');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());
+			}
+
+			try {
+				$description = Input::getString('description');
+			} catch (Exception $e) {
+				 array_push($errors, $e->getMessage());
+			}
+
+
+			if (empty($errors)){
+
+			 	$query = "INSERT INTO national_parks (name, location, date_est, area, url, description) 
+		    			VALUES (
+		    				:name, 
+			    			:location, 
+			    			:date_est, 
+			    			:area,
+			    			:url,
+			    			:description)";
+
+				$stmt = $dbc->prepare($query);
+				$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+				$stmt->bindValue(':location', $location, PDO::PARAM_STR);
+				$stmt->bindValue(':date_est', $date_est, PDO::PARAM_STR);
+				$stmt->bindValue(':area', $area, PDO::PARAM_STR);
+				$stmt->bindValue(':url', $url, PDO::PARAM_STR);
+				$stmt->bindValue(':description', $description, PDO::PARAM_STR);
+				$stmt->execute();
+			}	
 	}
 
 	$parks = getAllParks($dbc, $limit, $offset);
@@ -67,11 +122,14 @@ function pageController($dbc)
 		'previous' => $previous,
 		'count' => $count,
 		'parks' => $parks,
-		'limit' => $limit
+		'limit' => $limit,
+		'errors' => $errors
 	);	 
 }
 
 extract(pageController($dbc));
+
+deletePark($dbc);
 
 ?>
 <!DOCTYPE html>
@@ -130,6 +188,7 @@ extract(pageController($dbc));
 							<a class="btn btn-default" href= "national_parks.php?pageNumber=<?= $next ?>" role="button" name='next'>Next</a>
 						<?php endif ?>
 					</div>
+					
 					<div class="col-sm-4 text-right">
 						<span>Page: <?= $pageNumber ?> of <?=ceil($count/$limit) ?></span>
 					</div>
@@ -150,8 +209,16 @@ extract(pageController($dbc));
 					  <input type="text" name="area"><br>
 					  Description:
 					  <input type="text" name="description"><br>
+
 					  <button type="submit" value="Submit">Submit</button>
 				</form>	
+			
+				<form method="POST">
+					<h4> Delete A Park: </h4>
+					<input type="text" name="park_to_delete">
+					<button type="delete" value="Delete">Delete</button>
+				</form>
+
 			</div>
 		</div>	
 	</div>	
