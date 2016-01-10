@@ -1,0 +1,22 @@
+Update your getString() and getNumber() methods to each take two optional parameters: $min and $max. Update your methods in the following manner:
+
+If $key is not a string, or $min & $max are not numbers, throw an InvalidArgumentException.
+If the requested key is missing from the input, throw an OutOfRangeException
+If the value is the wrong type, throw a DomainException
+If a string is shorter than $min or longer than $max, throw a LengthException
+If a number is less than $min or larger than $max, throw a RangeException
+Update national_parks.php to take advantage of your $min and $max values to validate user input.
+
+Catch the correct exception types and push appropriate error messages onto your $errors array.
+
+Bonus
+
+Create a custom DateRangeException.
+
+Add $min and $max to the getDate() method; they should both be instances of DateTime. If the inputed date is outside of the specified range, throw your DateRangeException.
+
+//min and max range for numbers. min should be zero
+//outofrange
+//valid type= domain exception
+//sting length exception
+//range exception

@@ -161,6 +161,5 @@ class Model
 		$stmt = self::$dbc->prepare($query);
        	$stmt->bindValue(':id', $id, PDO::PARAM_INT);
        	$stmt->execute();
-
 	}	
 }

@@ -2,7 +2,7 @@
 
 require_once '../nat_config.php';
 require_once '../db_connect.php';
-require_once '../input.php';
+require_once '../Input.php';
 
 function getAllParks($dbc, $limit, $offset){
 	$preparedSelectAll = "SELECT * FROM national_parks LIMIT :limit OFFSET :offset;";
@@ -19,16 +19,16 @@ function getAllParks($dbc, $limit, $offset){
 
 function checkFormEntry()
 {
-	return Input::get('name') != '' && Input::get('location') != '' && Input::get('date_est')  != '' && Input::get('area')  != '' && Input::get('description') != '';
+	return Input::has('name') && Input::has('location') && Input::has('date_est') && Input::has('area') && Input::has('description');
 }
 
 function deletePark($dbc)
 {	
-	if (!empty($_POST) && Input::get('park_to_delete') != '' )
+	if (!empty($_POST) && Input::get('park_to_delete') != '')
 	{
-		var_dump(Input::get('park_to_delete'));
-		$park_to_delete= Input::getString('park_to_delete');
-		$stmt = $dbc->prepare('DELETE FROM national_parks WHERE name= :park_to_delete;');
+		// var_dump(Input::get('park_to_delete'));
+		$park_to_delete= Input::getNumber('park_to_delete');
+		$stmt = $dbc->prepare('DELETE FROM national_parks WHERE id = :park_to_delete;');
 		$stmt->bindValue(':park_to_delete', $park_to_delete, PDO::PARAM_STR);
 		$stmt->execute();
 
@@ -50,50 +50,49 @@ function pageController($dbc)
 	$previous= $pageNumber - 1;
 	$offset = ($limit * $pageNumber - $limit);
 
-	$count = $dbc->query('SELECT COUNT(*) FROM national_parks;')->fetchColumn();
+	deletePark($dbc);
 
 	if (!empty($_POST) && checkFormEntry()) 
 	{
 		
 			try {
-				$name = Input::getString('name');
+				$name = Input::getString('name', 1, 240);
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());	 
+				$errors['name'] = $e->getMessage();	 
 			}
 
 			try {
-				$location = Input::getString('location');
+				$location = Input::getString('location', 1, 100);
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());
+				 $errors['location'] = $e->getMessage();
 			}
 	
 			try {
-				$date_est = Input::getDate('date_est');
+				$date_est = Input::getDate('date_est', );
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());
+				 $errors['date_est'] = $e->getMessage();	
 			}
 
 			try {
-				$area = Input::getNumber('area');
+				$area = Input::getNumber('area', 0, 1000000000);
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());
+				 $errors['area'] = $e->getMessage();	
 			}
 
 			try {
-				$url = Input::getString('url');
+				$url = Input::getString('url', 1, 240);
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());
+				 $errors['url'] = $e->getMessage();	
 			}
 
 			try {
 				$description = Input::getString('description');
 			} catch (Exception $e) {
-				 array_push($errors, $e->getMessage());
+				 $errors['description'] = $e->getMessage();	
 			}
 
 
 			if (empty($errors)){
-
 			 	$query = "INSERT INTO national_parks (name, location, date_est, area, url, description) 
 		    			VALUES (
 		    				:name, 
@@ -106,13 +105,17 @@ function pageController($dbc)
 				$stmt = $dbc->prepare($query);
 				$stmt->bindValue(':name', $name, PDO::PARAM_STR);
 				$stmt->bindValue(':location', $location, PDO::PARAM_STR);
-				$stmt->bindValue(':date_est', $date_est, PDO::PARAM_STR);
+				$stmt->bindValue(':date_est', $date_est->format('Y-m-d'), PDO::PARAM_STR);
 				$stmt->bindValue(':area', $area, PDO::PARAM_STR);
 				$stmt->bindValue(':url', $url, PDO::PARAM_STR);
 				$stmt->bindValue(':description', $description, PDO::PARAM_STR);
 				$stmt->execute();
 			}	
 	}
+
+	$allParks = $dbc->query('SELECT * FROM national_parks;')->fetchAll(PDO::FETCH_ASSOC);
+
+	$count = count($allParks);
 
 	$parks = getAllParks($dbc, $limit, $offset);
 
@@ -122,14 +125,13 @@ function pageController($dbc)
 		'previous' => $previous,
 		'count' => $count,
 		'parks' => $parks,
+		'allParks' => $allParks,
 		'limit' => $limit,
 		'errors' => $errors
 	);	 
 }
 
 extract(pageController($dbc));
-
-deletePark($dbc);
 
 ?>
 <!DOCTYPE html>
@@ -188,7 +190,7 @@ deletePark($dbc);
 							<a class="btn btn-default" href= "national_parks.php?pageNumber=<?= $next ?>" role="button" name='next'>Next</a>
 						<?php endif ?>
 					</div>
-					
+
 					<div class="col-sm-4 text-right">
 						<span>Page: <?= $pageNumber ?> of <?=ceil($count/$limit) ?></span>
 					</div>
@@ -198,25 +200,42 @@ deletePark($dbc);
 			<div class="col-md-2 text-center">
 				<form method="POST">
 					  Park Name:
-					  <input type="text" name="name"><br>
+					  <input type="text" name="name" value = "<?php if (isset($_POST['name'])) echo $_POST['name']; ?>"><br>
+					  <p><?php if (isset($errors['name'])) echo $errors['name']; ?></p>
+
 					  Wikipedia Link:
-					  <input type="text" name="url"><br>
+					  <input type="text" name="url" value = "<?php if (isset($_POST['url'])) echo $_POST['url']; ?>"><br>
+					  <p><?php if (isset($errors['url'])) echo $errors['url']; ?></p>
+
 					  Location:
-					  <input type="text" name="location"><br>
+					  <input type="text" name="location" value = "<?php if (isset($_POST['location'])) echo $_POST['location']; ?>"><br>
+					  <p><?php if (isset($_POST['name'])) echo $_POST['name']; ?></p>
+
 					  Date Established:
-					  <input type="text" name="date_est"><br>
+					  <input type="text" name="date_est" value = "<?php if (isset($_POST['date_est'])) echo $_POST['date_est']; ?>"><br>
+					  <p><?php if (isset($errors['date_est'])) echo $errors['date_est']; ?></p>
+
 					  Area:
-					  <input type="text" name="area"><br>
+					  <input type="text" name="area" value = "<?php if (isset($_POST['area'])) echo $_POST['area']; ?>"><br>
+					  <p><?php if (isset($errors['area'])) echo $errors['area']; ?></p>
+
 					  Description:
-					  <input type="text" name="description"><br>
+					  <input type="text" name="description" value = "<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"><br>
+					  <p><?php if (isset($errors['description'])) echo $errors['description']; ?></p>
 
 					  <button type="submit" value="Submit">Submit</button>
 				</form>	
 			
 				<form method="POST">
 					<h4> Delete A Park: </h4>
-					<input type="text" name="park_to_delete">
-					<button type="delete" value="Delete">Delete</button>
+					<!-- select -->
+						<!-- option value = id, text = name -->
+					<select name="park_to_delete">
+						<?php foreach ($allParks as $park) : ?>
+							<option value="<?= $park['id'] ?>"><?= $park['name']; ?></option>
+						<?php endforeach; ?>
+					</select>
+					<button type="delete" value="delete">Delete</button>
 				</form>
 
 			</div>

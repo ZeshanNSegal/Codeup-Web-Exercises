@@ -1,5 +1,8 @@
 <?php
 
+class minAndMaxValues extends Exception { }
+class notAString extends minAndMaxValues { }
+
 class Input
 {
     /**
@@ -27,30 +30,60 @@ class Input
         return false;
     }
 
-    public static function getString($key)
+//min and max range for strings. min should be zero max should be 240
+    public static function getString($key, $min = 1, $max = 300)
     {
         $value = trim(self::get($key));
-        if(!is_string ($value)){
-            throw new Exception ("{$key} must be a string!");
-        }
-         return $value;
-    }
+        if ($value == '') {
+            throw new Exception("{$key} must have a value!");
 
-    public static function getNumber($key)
+        } if ($value < $min && $value > $max){
+            throw new InvalidArgumentException(
+                "{$key} must be in range of {$min} to {$max}!");
+
+        } else if(!is_string ($key)){
+            throw new InvalidArgumentException ("{$key} must be a string!");
+
+        } else if (!Input::has($key)) {
+            throw new OutOfRangeException ("{$key} must have a value!");
+
+        } else if (!is_string($value)) {
+            throw new DomainException ("{$value} must be a string!");
+
+        } else if (strlen($value) < $min || strlen($value) > $max) {
+            throw new LengthException ("{$value} must be between $min and $max values!");
+
+        } 
+        return $value;
+    }    
+
+    public static function getNumber($key, $min, $max)
     {
         $value = trim(str_replace(",", "", self::get($key)));
         if (!is_numeric ($value)){
             throw new Exception ("{$key} must be a number!");
-        }    
+
+        } else if ($value < $min || $value > $max){
+            throw new RangeException ("{$key} must be between $min and $max!");   
+        
+        } else if (!Input::has($key)){
+            throw new OutOfRangeException ("{$key} must have a value!");
+
+        } else if ($value < $min && $value > $max){
+            throw new InvalidArgumentException(
+                "{$key} must be in range of {$min} to {$max}!");   
+        } 
         return $value;
     }
 
-    public static function getDate($key)
+    public static function getDate($key, DateTime $min = NULL, DateTime $max = NULL)
     {
         $date = self::get($key);
         if(!strtotime($date)){
             throw new Exception ("The date must be a in format: yyyy-mm-dd!");
-        } else{
+        } else ($min > $date || $max < $date){
+            throw new DateRangeException ("
+                {$key} must be between " . $min->format('F-d-Y') and $max->format('F-d-Y'))
             return date("y-m-d", strtotime($date));
         }          
     }
