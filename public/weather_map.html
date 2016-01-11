@@ -8,25 +8,31 @@
 	<title>Weather Map</title>
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/weather.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis:800,700">
 </head>
 
 <body>
 	
-	<h4></h4>
-	<h1>Weather App</h1>
+	<div class="containter-fluid">
+		<div class="backgroundImage">	
+			<row class="rowForTitle">
+				<h1>Weather App</h1>
+			</row> <!-- end of row for title -->	
 
-	<div id="weather">
-		<div class="day1"></div>
-		<div class="day2"></div>
-		<div class="day3"></div>
-	</div>
+			<div id="weather">
+				<div class="day1"></div>
+				<div class="day2"></div>
+				<div class="day3"></div>
+			</div>
 
-	<form id="location-form">
-		<h5>Location:</h5>
-		<input name= "location" type="text" id="location">
-		<button class="btn btn-danger" type="submit">Submit</button> 
-	</form>
+			<form id="location-form">
+				<h5>Location:</h5>
+				<input name= "location" type="text" id="location">
+				<button class="btn btn-danger" type="submit">Submit</button> 
+			</form>
+		</div> <!-- end of backgroundImage -->	
 
+	</div> <!-- End of container -->
 	<div id="map-canvas"></div>
 
 

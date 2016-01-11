@@ -14,11 +14,11 @@ function displayNewCity(city){
 
 		$("h4").html(newCityName);
 		data.list.forEach(function(day, i) {
-			cityWeather = "<h3>" + day.temp.max + "&deg; / " + day.temp.min + "&deg;</h3>";
+			cityWeather = "<h3>" + day.temp.max + " &deg;F / " + day.temp.min + " &deg;" + "F" + "</h3>";
 			cityWeather += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">';
 			cityWeather += "<p><strong>" + day.weather[0].main + ": </strong>" + day.weather[0].description[0].toUpperCase() + day.weather[0].
 				description.substring(1, day.weather[0].description.length) + "</p>";
-			cityWeather += "<p><strong>Humidity: </strong>" + day.humidity + "</p>";
+			cityWeather += "<p><strong>Humidity: </strong>" + day.humidity + "%" + "</p>";
 			cityWeather += "<p><strong>Wind: </strong>" + day.speed + "</p>";
 			cityWeather += "<p><strong>Pressure: </strong>" + day.pressure + "</p>";
 			$(".day" + (i + 1)).html(cityWeather);	
